@@ -1,0 +1,41 @@
+{% extends 'check/base.html' %}
+{% load staticfiles %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}"/> -->
+
+
+
+{% block content %}
+        <table class="table table-hover">
+            <thead>
+            <tr class="success">
+                <th >Name</th>
+                <th >Total (TK)</th>
+                <th >Ammount in Word</th>
+                <th >Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if info %}
+                {% for i in info %}
+                    <tr>
+                    <td>
+                        {{ i.name }}
+                    </td>
+                    <td>
+                        {{i.total_ammount}}
+                    </td>
+                     <td>
+                        {{i.ammount_in_word}}
+                    </td>
+                     <td>
+                        {{i.date}}
+                    </td>
+                {% endfor %}
+            {% else %}
+                <td>Currently No item are available.</td>
+            {% endif %}
+            </tr>
+            </tbody>
+        </table>
+
+{% endblock %}
